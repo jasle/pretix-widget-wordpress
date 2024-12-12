@@ -35,7 +35,7 @@ class Languages extends Base {
      * @return mixed The language data as an associative array or null if not found.
      * @since 1.0.00
      */
-    public function get(string $code): mixed {
+    public function get(string $code): ?array {
         $filtered = array_filter($this->get_list(), function ($lang) use ($code) {
             return $lang['code'] === $code;
         });
@@ -82,7 +82,7 @@ class Languages extends Base {
      * @return mixed The language data as an associative array or null if not found.
      * @since 1.0.00
      */
-    public function get_by_locale(string $locale): mixed {
+    public function get_by_locale(string $locale): ?array {
         $filtered = array_filter($this->get_list(), function ($lang) use ($locale) {
             return $lang['locale'] === $locale;
         });

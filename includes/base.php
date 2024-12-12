@@ -153,12 +153,12 @@ class Base {
     /**
      * POST / GET escaping wrapper function.
      *
-     * @param mixed $value The value to escape.
+     * @param string $value The value to escape.
      *
-     * @return mixed The escaped value.
+     * @return string The escaped value.
      * @since 1.0.4
      */
-    public function _escape_request(mixed $value) {
+    public function _escape_request(string $value) {
         return sanitize_text_field( wp_unslash ( $value ) );
     }
 
@@ -166,12 +166,15 @@ class Base {
      * Wrapper with escaping for wp_verify_nonce().
      *
      * @param string $nonce The nonce to verify.
-     * @param mixed $action Should give context to what is taking place and be the same when nonce was created.
+     * @param string $action Should give context to what is taking place and be the same when nonce was created.
      *
      * @return string The escaped value.
      * @since 1.0.4
      */
-    public function _verify_nonce(string $nonce, mixed $action = -1) {
+    public function _verify_nonce(string $nonce, ?string $action = null) {
+        if ($action == null) {
+            $action = -1;
+        }
         return wp_verify_nonce( $this->_escape_request ( $nonce ) , $action );
     }
 }

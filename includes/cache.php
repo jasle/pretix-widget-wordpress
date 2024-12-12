@@ -258,11 +258,11 @@ class Cache extends Base {
     /**
      * Set the maximum cache time.
      *
-     * @param mixed $number The maximum cache time in hours.
+     * @param string | int $number The maximum cache time in hours.
      *
      * @since 1.0.00
      */
-    public function set_max_cache_time(mixed $number): array {
+    public function set_max_cache_time($number): array {
 		$errors = [];
         // allow reset with empty value
         if (empty($number)) {

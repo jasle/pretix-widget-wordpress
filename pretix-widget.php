@@ -6,9 +6,9 @@ Description: The pretix widget allows you to easily display pretix ticket widget
 Plugin URI: https://github.com/pretix/pretix-widget-wordpress
 Author: pretix.eu
 Author URI: https://pretix.eu
-Version: 1.0.6
+Version: 1.0.6-php7.4
 Requires at least: 6.1.1
-Requires PHP:      8.0.26
+Requires PHP:      7.4
 Domain Path: /includes/languages
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
@@ -21,7 +21,7 @@ License URI: https://www.apache.org/licenses/LICENSE-2.0
  *
  * @return void
  */
-function pretix_widget_autoloader($class_name) {
+function pretix_widget_autoloader(string $class_name) {
     // Strip namespace
     $class_name = str_replace('\\', '/', strtolower(substr($class_name, strlen('Pretix_Widget\\'))));
 
